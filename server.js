@@ -55,19 +55,17 @@
 // 
 import http from "http";
 import path from "node:path";
-const PORT=8000;
-console.log(import.meta.dirname)
+import { serverStatic } from "./serverStatic.js";
 
-const server=http.createServer((req,res)=>
-{
-        const pathToResource=path.join(__dirname,'public','index.html')
-        console.log('absolute:',absPathToResource)
-        res.statusCode=200;
-        res.setHeader('Content-Type', 'text/html')
-        res.end()
-    
-})
-// server.listen(PORT,()=>console.log('Connected on port: ${PORT}'))
-// console.log(import.meta.dirname)
-// const pathToResource=path.join(____dirname,'public','index.html')
-// console.log('absolute:',abspathToResource')
+const PORT = 8000;
+
+// Fix __dirname for ESM
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const server = http.createServer(async (req, res) => {
+    await serverStatic(req, res, __dirname);
+});
+
+server.listen(PORT, () => console.log(`connected on port: ${PORT}`));

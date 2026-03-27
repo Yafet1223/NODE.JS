@@ -7,8 +7,8 @@
        
 // })
 // server.listen(PORT, ()=>console.log(`connected on port: ${PORT}`))
- export function sendResponse(res,statusCode,contentType,payload){
-    res.statusCode=statusCode;
-    res.serHeader('Content-Type',contentType)
-    res.end(payload)
- }
+export function sendResponse(res, statusCode, content) {
+    res.statusCode = statusCode;
+    res.setHeader('Content-Type', 'text/html');
+    res.end(content);
+}

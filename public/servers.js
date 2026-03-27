@@ -66,13 +66,14 @@
 // //Create the Server
 // 
 import http from "http";
-import path from "node:path";
-const PORT=8000;
-const __dirname=import.meta.dirname;
-const server=http.createServer(async(req,res)=>{
-        await serverStatic(req,res, __dirname)
-}
-{
-    
-})
-server.listen(PORT,()=>console.log(`connected on port:${PORT}`))
+
+const PORT = 8000;
+
+// Keep __dirname as a placeholder; Node ESM does not have import.meta.dirname
+const __dirname = "."; // minimal fix to avoid syntax errors
+
+const server = http.createServer(async (req, res) => {
+    await serverStatic(req, res, __dirname);
+});
+
+server.listen(PORT, () => console.log(`connected on port:${PORT}`));

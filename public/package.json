@@ -1,0 +1,18 @@
+{
+  "name": "from-the-other-side",
+  "version": "1.0.0",
+  "description": "A simple To-Do backend API using Node.js http module",
+  "keywords": [
+    "nodejs",
+    "todo",
+    "backend",
+    "http"
+  ],
+  "license": "MIT",
+  "author": "Yafet",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

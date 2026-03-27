@@ -1,0 +1,5 @@
+//Absolute Paths
+Shows the Full Location of a file Folder on the System where ur code is Running
+Relative Paths
+relative to the File it appears in
+oft
